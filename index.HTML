@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة دعم - Mute10011</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <img src="xxxx.jpg" alt="صورتك" class="profile-pic">
+            <h1 class="name">Mute10011</h1>
+            <a href="https://kick.com/mute10011" target="_blank" class="stream-link">شاهد بثي على Kik</a>
+        </div>
+        
+        <div class="donation-form">
+            <h2>ادعمني الآن!</h2>
+            <form id="donateForm">
+                <div class="form-group">
+                    <label for="donatorName">اسمك:</label>
+                    <input type="text" id="donatorName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="amount">المبلغ (بالدولار):</label>
+                    <input type="number" id="amount" min="1" step="0.01" required>
+                    <span>دولار</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">رسالتك:</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="secretCode">الرمز السري (للاختبار):</label>
+                    <input type="text" id="secretCode" placeholder="أدخل الرمز السري">
+                </div>
+                
+                <div id="paypal-button-container"></div>
+                <button type="button" onclick="checkSecretCode()">اختبار التبرع</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- نافذة منبثقة للاختبار -->
+    <div id="testPopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <h2>اختبار التنبيه</h2>
+            <div class="form-group">
+                <label for="testDonatorName">اسم المتبرع:</label>
+                <input type="text" id="testDonatorName" required>
+            </div>
+            <div class="form-group">
+                <label for="testAmount">المبلغ (بالدولار):</label>
+                <input type="number" id="testAmount" min="1" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="testMessage">الرسالة:</label>
+                <textarea id="testMessage" required></textarea>
+            </div>
+            <button onclick="sendTestDonation()">إبداع</button>
+            <button onclick="closePopup()">إغلاق</button>
+        </div>
+    </div>
+
+    <script src="https://www.paypal.com/sdk/js?client-id=AT_0pPZIoltry6Q43loAPOUFc8SlM537TsB9GHzCs9wLZqY-kDoYrCwWvPrwsnhddv18GTmBp76wxXry"></script>
+    <script src="script.js"></script>
+</body>
+</html>
